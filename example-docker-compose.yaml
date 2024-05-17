@@ -2,7 +2,7 @@
 version: '3'
 
 services:
-  washermon:
+  kasaplugmon:
     image: ghcr.io/jcostom/kasaplugmon:latest
     container_name: kasaplugmon
     user: 1000:1000
