@@ -1,0 +1,19 @@
+---
+version: '3'
+
+services:
+  washermon:
+    image: ghcr.io/jcostom/kasaplugmon:latest
+    container_name: kasaplugmon
+    user: 1000:1000
+    environment:
+      - TZ=America/New_York
+      - PLUG_IP=ip.addr.of.plug-here
+      - DEBUG=0
+    restart: unless-stopped
+    networks:
+      - containers
+        
+networks:
+  containers:
+    external: true
