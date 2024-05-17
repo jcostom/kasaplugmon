@@ -16,7 +16,7 @@ INTERVAL = os.getenv('INTERVAL', 300)
 DEBUG = int(os.getenv('DEBUG', 0))
 
 # Other Globals
-VER = "0.2"
+VER = "0.3"
 USER_AGENT = f"kasaplugmon/{VER}"
 
 # Setup logger
@@ -38,7 +38,7 @@ async def plug_on(ip: str) -> None:
     p = SmartPlug(ip)
     await p.update()
     await p.turn_on()
-    DEBUG and logger.debug("Plug turned on.")
+    logger.info("Plug turned on.")
 
 
 def main() -> None:
@@ -48,7 +48,7 @@ def main() -> None:
         if hey_is_this_thing_on:
             DEBUG and logger.debug("Plug state was on.")
         else:
-            DEBUG and logger.debug("Plug state was off.")
+            logger.info("Plug state was off.")
             asyncio.run(plug_on(PLUG_IP))
         sleep(INTERVAL)
 
