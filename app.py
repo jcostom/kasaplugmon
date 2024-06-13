@@ -16,7 +16,7 @@ INTERVAL = os.getenv('INTERVAL', 300)
 DEBUG = int(os.getenv('DEBUG', 0))
 
 # Other Globals
-VER = "0.3"
+VER = "0.3.1"
 USER_AGENT = f"kasaplugmon/{VER}"
 
 # Setup logger
