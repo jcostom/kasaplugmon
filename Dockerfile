@@ -1,11 +1,11 @@
-FROM python:3.13.0-slim-bookworm AS builder
+FROM python:3.13.1-slim-bookworm AS builder
 
 ARG TZ=America/New_York
 
 RUN pip install requests python-kasa==0.6.2.1 \
     && pip cache purge
 
-FROM python:3.13.0-slim-bookworm
+FROM python:3.13.1-slim-bookworm
 
 ARG TZ=America/New_York
 ARG PYVER=3.13
