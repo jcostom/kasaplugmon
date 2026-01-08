@@ -1,14 +1,14 @@
-FROM python:3.13.9-slim-bookworm AS builder
+FROM python:3.14.2-slim-bookworm AS builder
 
 ARG TZ=America/New_York
 
 RUN pip install requests python-kasa==0.6.2.1 \
     && pip cache purge
 
-FROM python:3.13.9-slim-bookworm
+FROM python:3.14.2-slim-bookworm
 
 ARG TZ=America/New_York
-ARG PYVER=3.13
+ARG PYVER=3.14
 
 COPY --from=builder /usr/local/lib/python$PYVER/site-packages/ /usr/local/lib/python$PYVER/site-packages/
 
